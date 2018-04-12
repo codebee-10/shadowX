@@ -5,7 +5,7 @@ import json
 
 
 def portal_scan(item_id, ip="", urls="", port="", method="", username="", password="", client="",
-                logger=LogsFile.get_monitor_logs()):
+                logger=LogsFile.LogsFile().get_monitor_logs()):
     """
     run: 主运行方法
     http_access: 访问重要站点页面

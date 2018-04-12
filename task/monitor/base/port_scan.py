@@ -8,7 +8,7 @@ import json
 
 
 def port_scan(item_id, ip="",  urls="", port="", method="", username="", password="", client="",
-              logger=LogsFile.get_monitor_logs()):
+              logger=LogsFile.LogsFile().get_monitor_logs()):
     """
     port 检测
     :param ip:

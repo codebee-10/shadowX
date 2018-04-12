@@ -7,7 +7,7 @@ import redis
 
 def tasks_clear():
     '''清除backend中redis 数据'''
-    redis_log = LogsFile.get_monitor_logs()
+    redis_log = LogsFile.LogsFile().get_monitor_logs()
     try:
         re = redis.Redis(host=shadowx_config.redis['host'], port=shadowx_config.redis['port'], db=shadowx_config.redis['db'])
         re.flushdb()
@@ -16,8 +16,11 @@ def tasks_clear():
         redis_log.debug("[ Reids flush failed !]")
 
 
-def tasks_init():
-    pass
-
-
-
+def clear_logs():
+    '''清除监控日志信息'''
+    try:
+        fi = open('logs/files/monitor.log', 'r+')
+        fi.truncate()
+        fi.close()
+    except:
+        print("no log file to clean ...")
